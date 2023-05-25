@@ -4,9 +4,9 @@ from pydantic import BaseModel, EmailStr
 
 class UserBase(BaseModel):
     email: EmailStr | None = None
+    full_name: str | None = None
     is_active: bool | None = True
     is_superuser: bool = False
-    username: str | None = None
 
 
 class UserCreate(UserBase):
@@ -26,7 +26,7 @@ class UserInDBBase(UserBase):
 
 
 class User(UserInDBBase):
-    pass
+    ...
 
 
 class UserInDB(UserInDBBase):
